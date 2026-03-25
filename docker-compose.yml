@@ -17,8 +17,6 @@ services:
       - ./:/workspace
     depends_on:
       - proxy
-    networks:
-      - sandbox
 
   proxy:
     image: ubuntu/squid:latest
@@ -27,9 +25,3 @@ services:
       - "3128:3128"
     volumes:
       - ./squid/squid.conf:/etc/squid/squid.conf:ro
-    networks:
-      - sandbox
-
-networks:
-  sandbox:
-    driver: bridge

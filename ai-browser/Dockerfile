@@ -14,4 +14,4 @@ RUN chmod +x /entrypoint.sh \
 
 USER ubuntu
 
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/entrypoint.sh"]
