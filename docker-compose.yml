@@ -1,0 +1,35 @@
+services:
+  ai-browser:
+    build:
+      context: ./ai-browser
+    container_name: ai-browser
+    ports:
+      - "8931:8931"
+    shm_size: "1gb"
+    init: true
+    environment:
+      PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
+      MCP_PORT: "8931"
+      MCP_HOST: "0.0.0.0"
+      ARTIFACT_DIR: "/workspace/.mcp-artifacts"
+      PROXY_SERVER: "http://proxy:3128"
+    volumes:
+      - ./:/workspace
+    depends_on:
+      - proxy
+    networks:
+      - sandbox
+
+  proxy:
+    image: ubuntu/squid:latest
+    container_name: proxy
+    ports:
+      - "3128:3128"
+    volumes:
+      - ./squid/squid.conf:/etc/squid/squid.conf:ro
+    networks:
+      - sandbox
+
+networks:
+  sandbox:
+    driver: bridge
