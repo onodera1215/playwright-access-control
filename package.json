@@ -1,0 +1,13 @@
+{
+  "name": "playwright-mcp-runner",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "mcp": "mcp --port 8931 --host 0.0.0.0 --browser chromium --headless --isolated --block-service-workers --output-dir /workspace/.mcp-artifacts --save-trace --proxy-server http://proxy:3128"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0",
+    "@playwright/mcp": "0.0.58"
+  }
+}
