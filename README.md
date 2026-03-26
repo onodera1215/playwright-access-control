@@ -5,7 +5,7 @@
 ### 1. Devcontainerを起動
 Devcontainerを起動します。
 
-![start-devcontainer](./docs/images/start_devcontainer.pngs)
+![start-devcontainer](./docs/images/start_devcontainer.png)
 ### 2. Vscodeの設定確認
 Vscodeの設定でmcpサーバーの利用が許可されていることを確認します。
 chat.mcp.accessがallまたはregistry(組織アカウントで選択可)である必要があります。
